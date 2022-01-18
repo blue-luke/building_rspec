@@ -9,4 +9,7 @@ class Object
 end
 
 class Expect < Object
+  def initialise(suggested_answer)
+    
+  end
 end
