@@ -22,7 +22,7 @@ class Equal
   end
 end
 
-class Include < Expect
+class Include
   def initialize(array_element)
     @array_element = array_element
   end
@@ -40,11 +40,11 @@ def eq(value)
   Equal.new(value)
 end
 
-def include(value)
+def pinclude(value)
   Include.new(value)
 end
 
 # > Expect.new(true).to(Equal.new(true))
-# expect([1, 2, 3]).to include 2
-# expect([1, 2, 3]).to(include(2))
+# expect([1, 2, 3]).to pinclude 2
+# expect([1, 2, 3]).to(pinclude(2))
 
