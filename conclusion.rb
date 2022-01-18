@@ -12,7 +12,7 @@ class Expect
   end
 end
 
-class Equal < Expect
+class Equal
   def initialize(correct_answer)
     @correct_answer = correct_answer
   end
@@ -22,15 +22,15 @@ class Equal < Expect
   end
 end
 
-# class Include < Expect
-#   def initialize(array_element)
-#     @array_element = array_element
-#   end
+class Include < Expect
+  def initialize(array_element)
+    @array_element = array_element
+  end
 
-#   def compare(array)
-#     array.include?(@array_element)
-#   end
-# end
+  def compare(array)
+    array.include?(@array_element)
+  end
+end
 
 def expect(value)
   Expect.new(value)
@@ -40,9 +40,9 @@ def eq(value)
   Equal.new(value)
 end
 
-# def include(value)
-#   Include.new(value)
-# end
+def include(value)
+  Include.new(value)
+end
 
 # > Expect.new(true).to(Equal.new(true))
 # expect([1, 2, 3]).to include 2
