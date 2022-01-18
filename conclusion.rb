@@ -1,10 +1,10 @@
 class Expect
   def initialize(suggested_answer)
-    @suggested_answer = !!suggested_answer
+    @suggested_answer = suggested_answer
   end
 
   def to(correct_answer_object)
-    if @suggested_answer == correct_answer_object(correct_answer).true?
+    if correct_answer_object.compare(@suggested_answer)
       "Test passes! :)"
     else
       "Test fails! D:"
@@ -12,18 +12,24 @@ class Expect
   end
 end
 
-class Equal
+class Equal < Expect
   def initialize(correct_answer)
     @correct_answer = correct_answer
   end
 
-  def true?
-    
+  def compare(suggested_answer)
+    @correct_answer == suggested_answer
   end
 end
 
-# class Include
-#   def initialize
+# class Include < Expect
+#   def initialize(array_element)
+#     @array_element = array_element
+#   end
+
+#   def compare(array)
+#     array.include?(@array_element)
+#   end
 # end
 
 def expect(value)
