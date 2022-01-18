@@ -19,17 +19,17 @@ class Equal
   end
 end
 
-class Object
-  def expect(value)
-    Expect.new(value)
-  end
 
-  def eq(value)
-    Equal.new(value)
-  end
+def expect(value)
+  Expect.new(value)
 end
 
+def eq(value)
+  Equal.new(value)
+end
+
+
 # > Expect.new(true).to(Equal.new(true))
-# => "Test passes! :)"
-# > Expect.new(true).to(Equal.new(false))
-# => "Test fails! D:"
+# expect([1, 2, 3]).to include 2
+# expect([1, 2, 3]).to(include(2))
+
